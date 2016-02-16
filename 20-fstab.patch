@@ -1,0 +1,38 @@
+--- a/src/linux/fs.hpp
++++ b/src/linux/fs.hpp
+@@ -17,7 +17,6 @@
+ #ifndef __FS_HPP__
+ #define __FS_HPP__
+ 
+-#include <fstab.h>
+ #include <mntent.h>
+ 
+ #include <sys/mount.h>
+@@ -288,7 +288,7 @@
+   // Read the file system table from a file.
+   // @param   path    The path of the file storing the file system table.
+   // @return  An instance of FileSystemTable if success.
+-  static Try<FileSystemTable> read();
++  //static Try<FileSystemTable> read();
+ 
+   std::vector<Entry> entries;
+ };
+--- a/src/linux/fs.cpp
++++ b/src/linux/fs.cpp
+@@ -248,7 +248,7 @@
+   return table;
+ }
+ 
+-
++/*
+ Try<FileSystemTable> FileSystemTable::read()
+ {
+   // Mutex for guarding calls into non-reentrant fstab functions. We
+@@ -287,6 +287,7 @@
+ 
+   return table;
+ }
++*/
+ 
+ 
+ Try<Nothing> mount(const Option<string>& source,
